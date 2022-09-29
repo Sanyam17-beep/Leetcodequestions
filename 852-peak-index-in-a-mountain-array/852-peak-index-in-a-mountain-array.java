@@ -1,12 +1,24 @@
 class Solution {
     public int peakIndexInMountainArray(int[] arr) {
-        int max=Integer.MIN_VALUE;
-        List<Integer> lt=new ArrayList<>();
-        for(int ele:arr){
-            max=Math.max(ele,max);
-            lt.add(ele);
+         if(arr.length == 0){
+            return -1;
         }
-        return lt.indexOf(max);
         
+        int start = 0;
+        int end = arr.length -1;
+        int target = 0;
+        
+        while(start < end){
+        
+            int mid = start + (end-start)/2;
+            target = arr[mid+1];
+            
+            if(target<arr[mid]){
+                end = mid; 
+            }else if(target>arr[mid]){
+                start = mid+1;
+            }
+        }
+        return end;
     }
 }
