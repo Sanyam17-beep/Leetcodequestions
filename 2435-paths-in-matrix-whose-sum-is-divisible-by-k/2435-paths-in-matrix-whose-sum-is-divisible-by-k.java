@@ -16,7 +16,7 @@ class Solution {
            }
        }
          
-          if(sr < 0 || sr == grid.length || sc < 0 || sc == grid[0].length) {
+          if(sr < 0 || sr == dr+1 || sc < 0 || sc ==dc+1) {
             return 0;
         }
          if(dp[sr][sc][target%k]!=null){
