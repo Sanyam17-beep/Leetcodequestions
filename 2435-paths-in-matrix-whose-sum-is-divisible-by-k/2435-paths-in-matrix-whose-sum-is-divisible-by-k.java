@@ -8,9 +8,9 @@ class Solution {
           if(sr < 0 || sr == grid.length || sc < 0 || sc == grid[0].length) {
             return 0;
         }
-          target+=grid[sr][sc];
               if(sr==dr&&sc==dc){
           
+          target+=grid[sr][sc];
            if(target%k==0){
                return 1;
            }
@@ -23,7 +23,7 @@ class Solution {
          }
         int count=0;
          
-         count=paths(grid,k,sr+1,sc,dr,dc,target,dp)+paths(grid,k,sr,sc+1,dr,dc,target,dp);
+         count=paths(grid,k,sr+1,sc,dr,dc,target+grid[sr][sc],dp)+paths(grid,k,sr,sc+1,dr,dc,target+grid[sr][sc],dp);
 
          return dp[sr][sc][target%k]=count%mod;
     }
